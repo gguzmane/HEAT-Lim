@@ -860,7 +860,7 @@ def Survivability(Exp_time:float,Ereq:float,Emax_wettedness:float,Emax_sweat:flo
 
 
 
-def livability_Mmax(survivability: bool,Ereq:float,Emax_wettedness:float,Emax_sweat:float,M_rest:float) -> tuple:
+def livability_Mmax(survivability: bool,Ereq:float,Emax_wettedness:float,Emax_sweat:float,M_rest:float, Mass:float) -> tuple:
     '''Liveability is the maximum metabolic rate (Mmax) that can be generated before S≥0, 
     or sustained compensable heat stress, whith M = Hprod. The Mmax value indicates the 
     sustained activity levels (intensity but not duration) possible without unchecked 
@@ -893,7 +893,8 @@ def livability_Mmax(survivability: bool,Ereq:float,Emax_wettedness:float,Emax_sw
         Maximun evaporative heat loss in Watts linked with the sweat evaporation of the maximum sweat rate    
     M_rest : float
         Metabolic energetic expenditure while people is resting in W (here M_rest = than Hprod)
-    
+    Mass : float
+        Body mass in kg 
     Returns
     -------
     Mmax : float  
@@ -912,8 +913,9 @@ def livability_Mmax(survivability: bool,Ereq:float,Emax_wettedness:float,Emax_sw
     
     Mmax[~compensability] = np.nan
     non_livable = np.logical_and(survivability, ~compensability)
- 
-    return Mmax, non_livable
+    Mmax_MET = MetabolicRate_W_to_MET_Mass(Mmax,Mass) #Convert to METs
+    Mmax_capped = np.where(Mmax_MET > 10, 10, Mmax_MET) #if Mmax is greather than 10 METs
+    return Mmax_capped, non_livable
 
 
 # =============================================================================
