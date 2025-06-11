@@ -2,11 +2,12 @@
 
 **Physiological-based estimations of human survivability and liveability under extreme heat in a changing climate.**
 
-This repository hosts the Python implementation of the ASU/USYD Human/Environmental Adaptation and Threshold Limits Model (HEAT-Lim), formerly known as PyHHB. HEAT-Lim supports assessments of heat survivability and heat liveability by simulating human-environment heat exchange using a biophysical model. It is designed for use with climate model output, following the approach developed in Vanos et al. (2023). 
+This repository hosts the Python implementation of the ASU/USYD Human/Environmental Adaptation and Threshold Limits Model (HEAT-Lim), formerly named as PyHHB. HEAT-Lim supports assessments of heat survivability and heat liveability by simulating human-environment heat exchange using a biophysical model. It is designed for use with climate model output, following the approach developed in Vanos et al. (2023). 
 
 If you use this code, we kindly ask that you cite both the study and the code repository as follows:
 
 **First mention in your work:**  ASU/USYD Human/Environmental Adaptation and Threshold Limits Model (HEAT-Lim), and cite the original 2023 study (https://doi.org/10.1038/s41467-023-43121-5) and the zenodo repository of the code (https://zenodo.org/records/10020137).
+
 **Subsequent mentions**:  Simply refer to the model as HEAT-Lim! thanks! :)
 
 **UPDATE NOTICE:**
